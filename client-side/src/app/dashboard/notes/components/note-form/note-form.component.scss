@@ -1,0 +1,21 @@
+mat-toolbar > h3 {
+  font-family: 'Fugaz One', cursive;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.mat-card {
+  width: 80%;
+}
+
+@media (max-width: 750px) {
+  .mat-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+<app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'"
+    #sidenav>
+    <mat-toolbar class="menu-header" color="primary">
+      <h3 class="greeting__text">Welcome Back</h3>
+      <div class="profile-image__container">
+        <img src="../../../../assets/images/logo.png" alt="profile-image" class="profile__image">
+      </div>
+      <div class="account-details">
+        <h3 class="name__text">{{ userData?.firstname + ' ' + userData?.lastname }}</h3>
+        <h3 class="email__text">{{ userData?.email }}</h3>
+      </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]=[link.url] *ngFor="let link of links"> {{ link.name }} </a>
+      <a mat-list-item routerLink="/blog">Blog</a>
+      <a mat-list-item *ngIf="authService.loggedIn()" (click)="authService.logoutUser()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="app-sidenav-content">
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</mat-sidenav-container>

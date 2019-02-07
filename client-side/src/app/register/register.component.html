@@ -1,0 +1,162 @@
+<div class="body">
+  <div class="overlay">
+    <app-toolbar></app-toolbar>
+    <mat-card>
+      <h5>Sign Up</h5>
+      <mat-tab-group>
+        <mat-tab label="Personal">
+          <form class="form-container" [formGroup]="userForm" novalidate (ngSubmit)="userOnSubmit()">
+            <mat-form-field color="primary">
+              <i matPrefix class="fas fa-user-circle">&nbsp;</i>
+              <input matInput placeholder="FirstName" formControlName="firstname">
+              <mat-error *ngIf="userForm.controls.firstname.invalid && userForm.controls.firstname.touched">firstname is
+                required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fas fa-user">&nbsp;</i>
+              <input matInput placeholder="LastName" formControlName="lastname">
+              <mat-error *ngIf="userForm.controls.lastname.invalid && userForm.controls.lastname.touched">lastname is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="far fa-envelope">&nbsp;</i>
+              <input matInput placeholder="Email" formControlName="email" type="email">
+              <mat-error *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched">email is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fas fa-phone">+234&nbsp;</i>
+              <input matInput #phone maxlength="10" placeholder="Phone" formControlName="phone" type="tel">
+              <mat-hint align="end">{{phone.value.length}} /10</mat-hint>
+              <mat-error *ngIf="userForm.controls.phone.invalid && userForm.controls.phone.touched">phone is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fas fa-male">&nbsp;</i>
+              <mat-select formControlName="sex" placeholder="Sex">
+                <mat-option *ngFor="let sex of sexs" [value]="sex.value">
+                  {{sex.viewValue}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="userForm.controls.sex.invalid && userForm.controls.sex.touched">sex is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fas fa-calendar-alt">&nbsp;</i>
+              <input matInput [matDatepicker]="dob" placeholder="Date of Birth" formControlName="dob">
+              <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+              <mat-datepicker #dob></mat-datepicker>
+              <mat-error *ngIf="userForm.controls.dob.invalid && userForm.controls.dob.touched">select a valid date</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fas fa-map-marker-alt">&nbsp;</i>
+              <mat-select formControlName="location" placeholder="Select Location">
+                <mat-option *ngFor="let state of states" [value]="state">
+                  {{state}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="userForm.controls.location.invalid && userForm.controls.location.touched">select a valid
+                state</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fa fa-unlock-alt">&nbsp;</i>
+              <input matInput #password maxlength="6" placeholder="Password" formControlName="password">
+              <mat-hint align="end">{{password.value.length}} /6</mat-hint>
+              <mat-error *ngIf="userForm.controls.password.invalid && userForm.controls.password.touched">password is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="primary">
+              <i matPrefix class="fa fa-key">&nbsp;</i>
+              <input matInput #confirmPassword maxlength="6" placeholder="Confirm Password" formControlName="confirmPassword">
+              <mat-hint align="end">{{confirmPassword.value.length}} /6</mat-hint>
+              <mat-error *ngIf="userForm.controls.confirmPassword.invalid && userForm.controls.confirmPassword.touched">password
+                mismatch
+              </mat-error>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="oath">I agree with the Terms&conditions!</mat-checkbox>
+
+            <div>
+              <button mat-raised-button type="reset">Reset</button>
+              <button mat-raised-button [disabled]="!userForm.valid" type="submit" color="primary">Register</button>
+            </div>
+            Already a member
+            <a routerLink="/login">login here</a>
+          </form>
+        </mat-tab>
+        <!-- Business Account -->
+        <mat-tab label="Business">
+            <form class="form-container" [formGroup]="businessForm" novalidate (ngSubmit)="businessOnSubmit()">
+                <mat-form-field color="primary">
+                  <i matPrefix class="far fa-building">&nbsp;</i>
+                  <input matInput placeholder="Business/Company Name" formControlName="company">
+                  <mat-error *ngIf="businessForm.controls.company.invalid && businessForm.controls.company.touched">business/company name is required</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field color="primary">
+                  <i matPrefix class="fas fa-clipboard-check">&nbsp;</i>
+                  <mat-select formControlName="type" placeholder="Business Type">
+                      <mat-option *ngFor="let type of types" [value]="type">
+                        {{type}}
+                      </mat-option>
+                    </mat-select>
+                  <mat-error *ngIf="businessForm.controls.type.invalid && businessForm.controls.type.touched">Select a business type</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field color="primary">
+                  <i matPrefix class="far fa-envelope">&nbsp;</i>
+                  <input matInput placeholder="Email" formControlName="email" type="email">
+                  <mat-error *ngIf="businessForm.controls.email.invalid && businessForm.controls.email.touched">email is required</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field color="primary">
+                  <i matPrefix class="fas fa-phone">+234&nbsp;</i>
+                  <input matInput #phone maxlength="10" placeholder="Phone" formControlName="phone" type="tel">
+                  <mat-hint align="end">{{phone.value.length}} /10</mat-hint>
+                  <mat-error *ngIf="businessForm.controls.phone.invalid && businessForm.controls.phone.touched">phone is required</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field color="primary">
+                  <i matPrefix class="fas fa-map-marker-alt">&nbsp;</i>
+                  <mat-select formControlName="location" placeholder="Select Location">
+                    <mat-option *ngFor="let state of states" [value]="state">
+                      {{state}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="businessForm.controls.location.invalid && businessForm.controls.location.touched">select a valid location</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field color="primary">
+                  <i matPrefix class="fa fa-unlock-alt">&nbsp;</i>
+                  <input matInput #password maxlength="6" placeholder="Password" formControlName="password">
+                  <mat-hint align="end">{{password.value.length}} /6</mat-hint>
+                  <mat-error *ngIf="businessForm.controls.password.invalid && businessForm.controls.password.touched">password is required</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field color="primary">
+                  <i matPrefix class="fa fa-key">&nbsp;</i>
+                  <input matInput #confirmPassword maxlength="6" placeholder="Confirm Password" formControlName="confirmPassword">
+                  <mat-hint align="end">{{confirmPassword.value.length}} /6</mat-hint>
+                  <mat-error *ngIf="businessForm.controls.confirmPassword.invalid && businessForm.controls.confirmPassword.touched">password
+                    mismatch
+                  </mat-error>
+                </mat-form-field>
+        
+                <mat-checkbox formControlName="oath">I agree with the Terms&conditions!</mat-checkbox>
+        
+                <div>
+                  <button mat-raised-button type="reset">Reset</button>
+                  <button mat-raised-button [disabled]="!businessForm.valid" type="submit" color="primary">Register</button>
+                </div>
+                Already Registered
+                <a routerLink="/login">login here</a>
+              </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+  <app-footer></app-footer>
+</div>

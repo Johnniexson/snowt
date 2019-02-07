@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-toolbar color="primary">
+    <h3>Create Contact</h3>
+  </mat-toolbar>
+  <form class="form-container" [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field color="primary">
+      <input matInput placeholder="Name" formControlName="name">
+      <mat-error *ngIf="contactForm.controls.name.invalid && contactForm.controls.name.touched">name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="primary">
+      <input matInput placeholder="Phone" formControlName="phone" type="tel">
+      <mat-error *ngIf="contactForm.controls.phone.invalid && contactForm.controls.phone.touched">phone is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="primary">
+      <mat-select formControlName="category" placeholder="Select Category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{category.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field color="primary">
+      <input matInput placeholder="Location" formControlName="location">
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button [disabled]="!contactForm.valid" type="submit" color="primary">Save</button>
+      <button mat-raised-button type="reset" [mat-dialog-close]="false">Cancel</button>
+    </div>
+  </form>
+</mat-card>

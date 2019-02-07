@@ -1,0 +1,21 @@
+@media (max-width: 750px) {
+  .menu-bar,
+  .total {
+    right: 20px !important;
+  }
+}
+.menu-bar {
+  position: absolute;
+  right: 60px;
+  color: rgb(14, 13, 13);
+}
+.sum {
+  color: white;
+  background: rgb(94, 38, 158) !important;
+  align-items: center;
+}
+
+.social {
+  color: rgba(41, 41, 41, 0.836);
+  font-size: 20px;
+}

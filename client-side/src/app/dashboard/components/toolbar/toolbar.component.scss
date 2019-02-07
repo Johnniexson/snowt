@@ -1,0 +1,85 @@
+$iconWidth: 56px;
+
+a {
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #070000 !important;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #a64bf4 !important;
+}
+
+mat-toolbar {
+  background: url('../../../../assets/images/bg1.jpg') !important;
+}
+.sidenav-toggle {
+  display: flex;
+  padding: 0;
+  margin: 8px 8px 8px 0;
+  min-width: $iconWidth;
+  outline: none;
+  @media (max-width: 720px) {
+    align-items: center;
+    justify-content: center;
+  }
+  .fa {
+    font-size: 25px;
+    height: $iconWidth;
+    width: $iconWidth;
+    line-height: $iconWidth;
+    color: white;
+  }
+}
+.menu-bar {
+  position: absolute;
+  right: 20px;
+  color: rgb(255, 255, 255);
+  background: transparent;
+  button {
+    border: 2px double;
+    border-radius: 20px;
+    margin-right: 5px;
+  }
+}
+
+.user-tab {
+  position: absolute;
+  right: 20px;
+  color: rgb(255, 255, 255);
+  background: transparent;
+}
+
+.mat-menu {
+  background: #666262 !important;
+}
+
+.fas {
+  color: rgb(153, 152, 152);
+  margin-right: 4px;
+}
+
+.profile-image {
+  border-radius: 50px;
+  padding: 5px 8px;
+  color: #ffffff;
+  margin-right: 0.5rem;
+  background: #a64bf4;
+}
+
+@media (max-width: 720px) {
+  .user-tab {
+    right: 20px;
+  }
+}

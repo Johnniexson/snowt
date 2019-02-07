@@ -1,0 +1,62 @@
+.menu-bar {
+  position: absolute;
+  right: 60px;
+  color: rgb(133, 8, 235) !important;
+  font-family: 'Fugaz One', cursive;
+  border-radius: 10px;
+  border: 2px solid rgb(37, 2, 77);
+  box-shadow: 0 5px 30px 0px rgba(13, 13, 14, 0.288);
+  background: #f3f1f5;
+}
+
+mat-form-field {
+  margin-left: 5px;
+  width: 70%;
+}
+
+.primary {
+  background: rgba(40, 39, 95, 0.836) !important;
+  font-family: 'Fugaz One', cursive;
+  color: white;
+}
+
+.action-bar {
+  position: absolute;
+  right: 60px;
+  margin: 10px 0px 0px 5px;
+
+  button {
+    margin-right: 8px;
+    background: linear-gradient(132deg, #a64bf4, #fc00ff) !important;
+    color: white !important;
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+}
+
+.social {
+  color: rgba(41, 41, 41, 0.836);
+  font-size: 20px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+mat-table {
+  overflow: auto;
+  width: 100%;
+  max-height: 500px;
+}
+@media (max-width: 720px) {
+  .menu-bar {
+    right: 20px;
+  }
+  .action-bar {
+    right: 10px;
+  }
+}

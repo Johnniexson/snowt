@@ -1,0 +1,33 @@
+<mat-toolbar color="accent">
+  <button mat-button (click)="toggleSidenav.emit()" class="sidenav-toggle">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <span>Snowt</span>
+  <div class="menu-bar" *ngIf='!isScreenSmall() && !authService.loggedIn()'>
+    <button mat-button (click)="loginBtnHandler()">
+      Login
+    </button>
+    <button mat-button (click)="registerBtnHandler()">
+      Register
+    </button>
+  </div>
+  <div class="user-tab" *ngIf="authService.loggedIn()">
+    <mat-menu #userTab="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item>
+        <span class="profile-image">T</span>
+        <span><a routerLink="/profile">Profile</a></span>
+      </button>
+      <button mat-menu-item>
+        <i class="fas fa-money-check" aria-hidden="true"></i>
+        <span><a routerLink="/subscription">Subscription</a></span>
+      </button>
+      <button mat-menu-item>
+        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+        <span><a (click)="authService.logoutUser()">Logout</a></span>
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="userTab">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

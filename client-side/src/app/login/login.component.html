@@ -1,0 +1,70 @@
+<div class="body">
+  <div class="overlay">
+    <app-toolbar></app-toolbar>
+    <mat-card>
+      <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+      <h4>Login Here</h4>
+      <div>Select Account Type</div>
+      <mat-radio-group class="radio-group" [(ngModel)]="isBusiness">
+        <mat-radio-button class="radio-button" [value]="false" aria-checked="true">Personal&nbsp;</mat-radio-button>
+        <mat-radio-button class="radio-button" [value]="true">Business</mat-radio-button>
+      </mat-radio-group>
+      <form class="form-container" [formGroup]="userForm" type="email" (ngSubmit)="onSubmit()">
+        <mat-form-field color="primary">
+          <i matPrefix class="fas fa-user-circle">&nbsp;</i>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched">email is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field color="primary">
+          <i matPrefix class="fas fa-unlock-alt">&nbsp;</i>
+          <input matInput placeholder="Password" type="password" formControlName="password">
+          <mat-error *ngIf="userForm.controls.password.invalid && userForm.controls.password.touched">password is
+            required</mat-error>
+        </mat-form-field>
+
+        <div>
+          <mat-hint class="txt1" align="end"><a routerLink="#">
+              Forgot email/password?
+            </a></mat-hint>
+          <mat-error *ngIf="!valid">Invalid credentials! (NB: passwords are case sensitive)</mat-error>
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button type="submit" class="login100-form-btn">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="txt1">
+          <span>
+            New User?<a routerLink="/register">
+              Register Here
+            </a>
+          </span>
+        </div>
+        <div class="txt1">
+          <span>
+            OR<br> Sign In Using
+          </span>
+        </div>
+
+        <div class="flex-c-m">
+          <a href="#" class="login100-social-item bg1">
+            <i class="fab fa-facebook"></i>
+          </a>
+
+          <a href="#" class="login100-social-item bg2">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+          <a href="#" class="login100-social-item bg3">
+            <i class="fab fa-google"></i>
+          </a>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
+<app-footer></app-footer>
