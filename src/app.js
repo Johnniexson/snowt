@@ -8,7 +8,6 @@ import { router } from './config/routes';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  // 'mongodb://niex:niexson02@ds125602.mlab.com:25602/corntat',
   'mongodb://localhost:27017/knowt',
   { useNewUrlParser: true }
 );
